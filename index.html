@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SnapSort Privacy Policy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FAFAFD;
+    --surface: #FFFFFF;
+    --surface-alt: #EEEEF6;
+    --text: #1B1C24;
+    --text-muted: #5B5D72;
+    --accent: #4F5DF5;
+    --accent-soft: #E3E4FF;
+    --accent-soft-text: #141761;
+    --good: #1E8E5A;
+    --good-soft: #D7F2E3;
+    --bad-muted: #8A8D9E;
+    --border: #DDDEE8;
+    --shadow: rgba(23, 24, 40, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #121318;
+      --surface: #191A22;
+      --surface-alt: #1F2029;
+      --text: #E6E6EC;
+      --text-muted: #B0B1C3;
+      --accent: #8B93FF;
+      --accent-soft: #383170;
+      --accent-soft-text: #E1DFFF;
+      --good: #5FDBA0;
+      --good-soft: #1B3A2C;
+      --bad-muted: #7C7E90;
+      --border: #3A3B49;
+      --shadow: rgba(0, 0, 0, 0.35);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #121318;
+    --surface: #191A22;
+    --surface-alt: #1F2029;
+    --text: #E6E6EC;
+    --text-muted: #B0B1C3;
+    --accent: #8B93FF;
+    --accent-soft: #383170;
+    --accent-soft-text: #E1DFFF;
+    --good: #5FDBA0;
+    --good-soft: #1B3A2C;
+    --bad-muted: #7C7E90;
+    --border: #3A3B49;
+    --shadow: rgba(0, 0, 0, 0.35);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+    font-size: 17px;
+    line-height: 1.65;
+    padding-inline: max(20px, env(safe-area-inset-left, 0px));
+  }
+  h1, h2, .eyebrow, nav.toc, .datestamp {
+    font-family: "Sora", ui-sans-serif, system-ui, sans-serif;
+  }
+  h1, h2 { text-wrap: balance; }
+  a { color: var(--accent); }
+
+  .page {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding-block: 56px 96px;
+    display: grid;
+    grid-template-columns: 220px minmax(0, 700px);
+    gap: 56px;
+    align-items: start;
+  }
+  @media (max-width: 860px) {
+    .page { grid-template-columns: minmax(0, 1fr); }
+    nav.toc { display: none; }
+  }
+
+  header.hero {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 8px;
+  }
+  .brandrow { display: flex; align-items: center; gap: 12px; }
+  .mark {
+    width: 40px; height: 40px; border-radius: 11px;
+    background: var(--accent);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .mark svg { width: 22px; height: 22px; }
+  .brandname {
+    font-family: "Sora", sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    letter-spacing: -0.01em;
+  }
+  h1 {
+    font-weight: 700;
+    font-size: clamp(28px, 4vw, 38px);
+    letter-spacing: -0.02em;
+    margin: 4px 0 0;
+  }
+  .datestamp { color: var(--text-muted); font-size: 14px; font-weight: 500; }
+
+  nav.toc {
+    position: sticky;
+    top: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-size: 13.5px;
+  }
+  nav.toc a {
+    color: var(--text-muted);
+    text-decoration: none;
+    padding: 6px 10px;
+    border-radius: 8px;
+  }
+  nav.toc a:hover, nav.toc a:focus-visible { color: var(--text); background: var(--surface-alt); }
+  nav.toc .toc-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--bad-muted);
+    text-transform: uppercase;
+    padding: 0 10px 8px;
+  }
+
+  main { min-width: 0; }
+
+  .summary {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px 26px;
+    box-shadow: 0 1px 3px var(--shadow);
+    margin-bottom: 40px;
+  }
+  .summary h2 {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 14px;
+  }
+  .summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  @media (max-width: 560px) { .summary-grid { grid-template-columns: 1fr; } }
+  .summary-col h3 {
+    font-family: "Sora", sans-serif;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin: 0 0 8px;
+  }
+  .summary ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 7px; }
+  .summary li {
+    font-family: "Sora", sans-serif;
+    font-size: 13.5px;
+    line-height: 1.4;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+  .summary li::before {
+    content: "";
+    flex-shrink: 0;
+    width: 16px; height: 16px;
+    border-radius: 5px;
+    margin-top: 1px;
+  }
+  .summary .yes li::before {
+    background-color: var(--good-soft);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M3.5 8.5L6.5 11.5L12.5 4.5' stroke='%231E8E5A' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: center;
+  }
+  .summary .no li::before {
+    background-color: var(--surface-alt);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M4 4L12 12M12 4L4 12' stroke='%238A8D9E' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: center;
+  }
+
+  section { margin-bottom: 40px; scroll-margin-top: 24px; }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .eyebrow .num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px; height: 20px;
+    border-radius: 6px;
+    background: var(--accent-soft);
+    color: var(--accent-soft-text);
+    font-size: 11px;
+  }
+  h2 { font-size: 21px; font-weight: 700; letter-spacing: -0.01em; margin: 0 0 12px; }
+  p { margin: 0 0 14px; }
+  p:last-child { margin-bottom: 0; }
+  section p.lede { color: var(--text-muted); }
+
+  .fact-list { list-style: none; margin: 14px 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+  .fact-list li { padding-left: 20px; position: relative; }
+  .fact-list li::before { content: "—"; position: absolute; left: 0; color: var(--accent); }
+  .fact-list strong { font-weight: 600; }
+
+  .callout {
+    background: var(--surface-alt);
+    border-radius: 12px;
+    padding: 16px 18px;
+    font-size: 15.5px;
+    color: var(--text-muted);
+    margin: 16px 0;
+  }
+  .callout strong { color: var(--text); }
+
+  code {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 0.85em;
+    background: var(--surface-alt);
+    padding: 1.5px 5px;
+    border-radius: 4px;
+  }
+
+  .contact-box {
+    background: var(--surface);
+    border: 1px dashed var(--border);
+    border-radius: 12px;
+    padding: 20px 22px;
+  }
+  .contact-box .placeholder {
+    font-family: "Sora", sans-serif;
+    font-size: 13px;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 2px 8px;
+    border-radius: 6px;
+  }
+
+  footer {
+    grid-column: 1 / -1;
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    color: var(--bad-muted);
+    font-family: "Sora", sans-serif;
+    font-size: 12.5px;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    section { animation: rise 0.5s ease-out backwards; }
+    section:nth-of-type(1) { animation-delay: 0.02s; }
+    section:nth-of-type(2) { animation-delay: 0.06s; }
+    section:nth-of-type(3) { animation-delay: 0.1s; }
+  }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="hero">
+    <div class="brandrow">
+      <div class="mark">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M5 6a1 1 0 011-1h9l4 4v9a1 1 0 01-1 1H6a1 1 0 01-1-1V6z" stroke="white" stroke-width="1.6" stroke-linejoin="round"/><path d="M15 5v4h4" stroke="white" stroke-width="1.6" stroke-linejoin="round"/></svg>
+      </div>
+      <span class="brandname">SnapSort</span>
+    </div>
+    <h1>Privacy Policy</h1>
+    <span class="datestamp">Effective October 6, 2026</span>
+  </header>
+
+  <nav class="toc" aria-label="Table of contents">
+    <span class="toc-label">On this page</span>
+    <a href="#access">What we access</a>
+    <a href="#store">What we store</a>
+    <a href="#dont">What SnapSort doesn't do</a>
+    <a href="#mlkit">Diagnostics from Google ML Kit</a>
+    <a href="#cloud">Optional cloud processing</a>
+    <a href="#assistant">The on-device assistant</a>
+    <a href="#permissions">Permissions</a>
+    <a href="#retention">Deleting your data</a>
+    <a href="#children">Children's privacy</a>
+    <a href="#rights">Your choices</a>
+    <a href="#changes">Changes to this policy</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <main>
+    <div class="summary">
+      <h2>The short version</h2>
+      <div class="summary-grid">
+        <div class="summary-col yes">
+          <h3>True today</h3>
+          <ul>
+            <li>Everything runs on your phone — text recognition, categorizing, search</li>
+            <li>Your screenshots and the text read from them never leave your device</li>
+            <li>No account, sign-up, or login of any kind</li>
+            <li>You can delete anything, anytime, with an undo</li>
+            <li>Google's on-device ML engine may send anonymous technical diagnostics (device model, app version, speed) — never your images or text. See section 4</li>
+          </ul>
+        </div>
+        <div class="summary-col no">
+          <h3>Not present</h3>
+          <ul>
+            <li>No SnapSort servers — nothing of yours is uploaded to us</li>
+            <li>No ads, no tracking, no profiling</li>
+            <li>No selling or sharing your data</li>
+            <li>Nothing collected from children</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <section id="access">
+      <span class="eyebrow"><span class="num">1</span>What we access</span>
+      <h2>Your screenshots, and only your screenshots</h2>
+      <p>SnapSort asks for access to your device's photo library so it can find your screenshots and show them to you inside the app. It does not browse your full camera roll for any other purpose, and it does not copy your images anywhere — it reads them directly from the photo library each time, the same way your Photos app does.</p>
+      <p class="lede">If you grant "limited" access instead of full access, SnapSort only ever sees the specific images you selected.</p>
+    </section>
+
+    <section id="store">
+      <span class="eyebrow"><span class="num">2</span>What we store</span>
+      <h2>A small local database, on your device, about your device</h2>
+      <p>To organize your screenshots, SnapSort keeps a local database (a single SQLite file inside the app's own storage) containing:</p>
+      <ul class="fact-list">
+        <li><strong>Recognized text</strong> — read from each screenshot using on-device text recognition (Google's ML Kit, running on your device — the image and the text stay there)</li>
+        <li><strong>Category and extracted fields</strong> — e.g. a receipt's total and merchant, a travel document's confirmation number</li>
+        <li><strong>Your organization choices</strong> — favorites, "sensitive" flags, projects, collections</li>
+        <li><strong>A content fingerprint</strong> (a SHA-256 hash of each image's bytes) — used only to find exact duplicate screenshots on your device, never to identify or compare against anything elsewhere</li>
+      </ul>
+      <div class="callout">This database never leaves your device. It isn't backed up to any cloud service by the operating system either — SnapSort explicitly opts out of Android's automatic app backup for exactly this reason.</div>
+    </section>
+
+    <section id="dont">
+      <span class="eyebrow"><span class="num">3</span>What SnapSort doesn't do</span>
+      <h2>No servers, no uploads, no accounts</h2>
+      <p>SnapSort does not operate any server and has no account system. The app contains no code that uploads your screenshots, the text read from them, or your organization data to us or to any third party. There are no advertising SDKs and no analytics or crash-reporting service of our own.</p>
+      <p>Quick actions such as "Open in Maps" or "Track Flight" hand a link to your browser or Maps app, and only when you tap them.</p>
+    </section>
+
+    <section id="mlkit">
+      <span class="eyebrow"><span class="num">4</span>Diagnostics from Google ML Kit</span>
+      <h2>The one thing that can leave your device</h2>
+      <p>SnapSort uses Google's ML Kit for on-device text recognition and QR/barcode detection. According to Google's published data disclosure, ML Kit may send limited technical diagnostics to Google, encrypted in transit:</p>
+      <ul class="fact-list">
+        <li>Device information — manufacturer, model, operating system version</li>
+        <li>App information — package name and version</li>
+        <li>Per-installation identifiers, which Google states are not intended to identify you personally</li>
+        <li>Performance metrics (such as processing time), configuration details, event types, and error codes</li>
+      </ul>
+      <p>Google states that <strong>images and recognized text are never sent</strong>, and that ML Kit does not transfer this data to third parties. SnapSort does not receive or have access to these diagnostics. This is the reason the app's network permissions (section 7) exist. Google handles this data under its own privacy policy; its disclosure is published at <a href="https://developers.google.com/ml-kit/android-data-disclosure">developers.google.com/ml-kit/android-data-disclosure</a>.</p>
+    </section>
+
+    <section id="cloud">
+      <span class="eyebrow"><span class="num">5</span>Optional cloud processing</span>
+      <h2>A setting that exists for the future, and is off today</h2>
+      <p>AI Settings includes a "Cloud Processing" toggle, reserved for a possible future feature that would send select content to a cloud AI provider for deeper analysis. As of this version of the app, that toggle has no server to connect to — turning it on changes nothing yet. If this feature is ever activated in a future update:</p>
+      <ul class="fact-list">
+        <li>It will be <strong>off by default</strong> and require your explicit opt-in</li>
+        <li>Anything you've marked <strong>"sensitive" will always be excluded</strong>, regardless of this setting — that exclusion cannot be bypassed</li>
+        <li>This policy will be updated first, with the specific provider and data involved named plainly</li>
+      </ul>
+    </section>
+
+    <section id="assistant">
+      <span class="eyebrow"><span class="num">6</span>The on-device assistant</span>
+      <h2>A memory assistant, not a chatbot</h2>
+      <p>The Memory Assistant answers questions about your saved screenshots using rules-based matching against your own local data — it is not a general-purpose AI model and does not send your questions or your data anywhere to generate an answer. If it can't find something in what you've actually saved, it says so rather than guessing.</p>
+    </section>
+
+    <section id="permissions">
+      <span class="eyebrow"><span class="num">7</span>Permissions</span>
+      <h2>What we ask for, and why</h2>
+      <ul class="fact-list">
+        <li><strong>Photos / media</strong> (<code>READ_MEDIA_IMAGES</code>) — required to find and display your screenshots</li>
+        <li><strong>Notifications</strong> (<code>POST_NOTIFICATIONS</code>) — only used if you turn on optional reminders in Profile › Notifications; off by default</li>
+        <li><strong>Network access</strong> (<code>INTERNET</code>, <code>ACCESS_NETWORK_STATE</code>) — declared by Google's ML Kit library so it can send the diagnostics described in section 4. SnapSort itself makes no network requests of its own</li>
+      </ul>
+      <p class="lede">SnapSort requests no location, contacts, microphone, camera, or background-location permissions.</p>
+    </section>
+
+    <section id="retention">
+      <span class="eyebrow"><span class="num">8</span>Deleting your data</span>
+      <h2>Deletion is immediate, undo is generous</h2>
+      <p>Deleting a screenshot inside SnapSort removes it from the app's organization (a short "Undo" window follows every delete). Because SnapSort never copies your images out of your photo library, removing something from SnapSort's database never deletes the original photo — you manage that from your device's Photos app, as always.</p>
+      <p>Profile › Backup &amp; Sync lets you export a copy of your organization data to a file you control, and restore it later on the same device. Uninstalling SnapSort deletes its local database entirely, on-device, immediately — there is no SnapSort server copy to separately request deletion of, because none exists.</p>
+    </section>
+
+    <section id="children">
+      <span class="eyebrow"><span class="num">9</span>Children's privacy</span>
+      <h2>Not directed at children</h2>
+      <p>SnapSort is not directed at children under 13, and we do not knowingly collect personal information from children. SnapSort has no servers and no accounts; the only data that can leave the device is the technical diagnostics described in section 4, which contain no personal content.</p>
+    </section>
+
+    <section id="rights">
+      <span class="eyebrow"><span class="num">10</span>Your choices</span>
+      <h2>You're already in control</h2>
+      <p>Because there's no account and no SnapSort-held copy of your data, the usual "request my data" or "delete my account" process doesn't apply here in the way it does for cloud services — what the access-and-deletion rights under GDPR, CCPA, and similar laws are meant to guarantee is already true by default: your content lives only on your device, under controls you already have. For the ML Kit diagnostics in section 4, Google's own privacy policy and disclosure apply.</p>
+    </section>
+
+    <section id="changes">
+      <span class="eyebrow"><span class="num">11</span>Changes to this policy</span>
+      <h2>We'll date every revision</h2>
+      <p>If this policy changes — particularly if the cloud processing feature described in section 5 is ever activated — the effective date at the top of this page will be updated, and material changes will be called out clearly rather than folded in silently.</p>
+    </section>
+
+    <section id="contact">
+      <span class="eyebrow"><span class="num">12</span>Contact</span>
+      <h2>Questions about this policy</h2>
+      <div class="contact-box">
+        <p style="margin-bottom:0">Questions about this policy or your data? Email <a href="mailto:abdullahkhalil452@gmail.com">abdullahkhalil452@gmail.com</a>.</p>
+      </div>
+    </section>
+
+    <footer>SnapSort is an on-device screenshot organizer. This policy describes the Android app as of the effective date above.</footer>
+  </main>
+</div>
+</body>
+</html>
